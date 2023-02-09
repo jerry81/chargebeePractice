@@ -13,7 +13,25 @@ coupons = ChargeBee::Coupon.list({
   puts entry.coupon
 end
 
-puts "will try hostedpage api"
+
+
+  puts " will try Estimate api"
+  params = {
+    :billing_address => {
+      :line1 => "PO Box 9999",
+      :city => "Walnut",
+      :zip => "91789",
+      :country => "US"
+      },
+    :subscription => {
+      :plan_id => "value-premium"
+      }
+  }
+  result = ChargeBee::Estimate.create_subscription(params)
+
+  puts result
+
+  puts "will try hostedpage api"
 
 result = ChargeBee::HostedPage.checkout_new({
   :billing_address => {
