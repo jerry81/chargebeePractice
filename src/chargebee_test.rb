@@ -13,6 +13,12 @@ coupons = ChargeBee::Coupon.list({
   puts entry.coupon
 end
 
+puts "will work with plans api"
+
+result = ChargeBee::Plan.list({:offset=>nil})
+result.each do |entry|
+  puts entry
+end
 
 
   puts " will try Estimate api"
